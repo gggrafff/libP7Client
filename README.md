@@ -57,12 +57,3 @@ Internally P7 has very simple design, and consist of few sub-modules:
         Null - drops all incoming data, save CPU for the hosting process  
     Client - is a core module, it aggregate sink & channels together and manage them. Every client object can handle up to 32 independent channels  
 
-
-Let’s take an example (diagram below) - developed application has to write 2 independent log (trace) streams and 1 telemetry stream, and delivers them directly to Baical. Initialization sequence will be:  
-
-    First of all you need to create P7 Client, and specify parameters for sink ”/P7.Sink=Baical /P7.Addr=127.0.0.1”  
-    Using the client create:  
-        first trace channel with name ”Core”  
-        second trace channel named ”Module A”  
-        telemetry channel named ”CPU, MEM”  
-
